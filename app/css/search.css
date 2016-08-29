@@ -12,7 +12,15 @@
   flex-wrap: wrap;
   background-size: cover;
   padding-bottom: 50px;
-  min-height: 80vh; }
+  min-height: 80vh;
+  z-index: 2000; }
+  .containComic .containall {
+    position: absolute;
+    z-index: -250;
+    background-image: url("http://i.imgur.com/EROmu7A.jpg");
+    height: 100%;
+    width: 100vw;
+    opacity: .1; }
   .containComic .name {
     width: 100%; }
   .containComic .panel {
@@ -31,20 +39,20 @@
       opacity: 1; }
   .containComic #divider1 {
     width: 1%;
-    background-color: white;
+    background-color: black;
     position: absolute;
     height: 100%;
     left: 33%; }
   .containComic #divider2 {
     width: 1%;
-    background-image: url("http://i.imgur.com/gGOmbAV.jpg");
+    background-color: black;
     color: white;
     position: absolute;
     height: 100%;
     left: 66%; }
   .containComic #divider3 {
     width: 100%;
-    background-color: white;
+    background-color: black;
     height: 2%;
     position: absolute;
     bottom: 40%;

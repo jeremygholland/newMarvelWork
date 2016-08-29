@@ -15,6 +15,15 @@
   background-size: cover;
   padding-bottom: 50px;
   min-height: 80vh;
+  z-index: 2000;
+  .containall{
+    position: absolute;
+    z-index: -250;
+    background-image: url("http://i.imgur.com/EROmu7A.jpg");
+    height: 100%;
+    width: 100vw;
+    opacity: .1;
+  }
   .name{
     width: 100%;
   }
@@ -37,14 +46,14 @@
   }
   #divider1{
     width:1%;
-    background-color: white;
+    background-color: black;
     position: absolute;
     height: 100%;
     left: 33%;
   }
   #divider2{
     width:1%;
-    background-image: url("http://i.imgur.com/gGOmbAV.jpg");
+    background-color: black;
     color: white;
     position: absolute;
     height: 100%;
@@ -52,7 +61,7 @@
   }
   #divider3{
     width:100%;
-    background-color: white;
+    background-color: black;
     height: 2%;
     position: absolute;
     bottom: 40%;
