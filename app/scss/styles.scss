@@ -1,0 +1,54 @@
+.backgroundImg{
+  height: 30vh;
+  width: 30vw;
+  opacity: .5
+}
+.ui-helper-hidden-accessible{
+display: none;
+}
+.containStart{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  .leftInput{
+    width: 50%;
+    input{
+      width: 100%;
+      height: 40px;
+      font-size: 18px;
+      text-align: center;
+    }
+    input::-webkit-input-placeholder{
+      font-size: 18px;
+      text-align: center;
+    }
+  }
+  button{
+    width: 10%;
+  }
+  .rightInput{
+    width: 40%;
+    input{
+      width: 100%;
+      height: 40px;
+      font-size: 18px;
+      text-align: center;
+    }
+    input::-webkit-input-placeholder{
+      font-size: 18px;
+      text-align: center;
+    }
+  }
+}
+.homeBtn{
+  display: flex;
+  margin-left: 2vw;
+  align-items: center
+  a{
+
+  }
+}
+#myNav{
+  background-color: #ED1323;
+
+}

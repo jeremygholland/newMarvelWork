@@ -1,0 +1,42 @@
+.backgroundImg {
+  height: 30vh;
+  width: 30vw;
+  opacity: .5; }
+
+.ui-helper-hidden-accessible {
+  display: none; }
+
+.containStart {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; }
+  .containStart .leftInput {
+    width: 50%; }
+    .containStart .leftInput input {
+      width: 100%;
+      height: 40px;
+      font-size: 18px;
+      text-align: center; }
+    .containStart .leftInput input::-webkit-input-placeholder {
+      font-size: 18px;
+      text-align: center; }
+  .containStart button {
+    width: 10%; }
+  .containStart .rightInput {
+    width: 40%; }
+    .containStart .rightInput input {
+      width: 100%;
+      height: 40px;
+      font-size: 18px;
+      text-align: center; }
+    .containStart .rightInput input::-webkit-input-placeholder {
+      font-size: 18px;
+      text-align: center; }
+
+.homeBtn {
+  display: flex;
+  margin-left: 2vw;
+  align-items: center a; }
+
+#myNav {
+  background-color: #ED1323; }

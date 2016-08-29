@@ -1,0 +1,62 @@
+#heroOneImg{
+  z-index: -200;
+  min-height: 500px;
+  div{
+    height: 100%;
+    width: 50%;
+  }
+}
+
+.containComic{
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  background-size: cover;
+  padding-bottom: 50px;
+  min-height: 80vh;
+  .name{
+    width: 100%;
+  }
+  .panel{
+    width:30%;
+    max-height: 300px;
+    overflow-y: scroll;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding: 20px 20px 20px 20px;
+    background-color: #FFF;
+    opacity: .70;
+    border-radius: 10px;
+    border: 1px dotted #333333;
+    position: relative;
+    p{
+      opacity: 1;
+    }
+
+  }
+  #divider1{
+    width:1%;
+    background-color: white;
+    position: absolute;
+    height: 100%;
+    left: 33%;
+  }
+  #divider2{
+    width:1%;
+    background-image: url("http://i.imgur.com/gGOmbAV.jpg");
+    color: white;
+    position: absolute;
+    height: 100%;
+    left:66%;
+  }
+  #divider3{
+    width:100%;
+    background-color: white;
+    height: 2%;
+    position: absolute;
+    bottom: 40%;
+    margin-bottom: 50px;
+  }
+
+}
