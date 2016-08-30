@@ -1,7 +1,21 @@
+@font-face{
+  font-family: 'marvelComics';
+  src: url('fonts/AVENGEANCE.otf') format('truetype');;
+}
+#watcher{
+  font-family: 'marvelComics' ;
+}
 .backgroundImg{
   height: 30vh;
   width: 30vw;
   opacity: .5
+}
+.containApp{
+  width: 100vw;
+  height: 100vh;
+  background-color: #333333;
+  display: flex;
+  justify-content: center;
 }
 .ui-helper-hidden-accessible{
 display: none;

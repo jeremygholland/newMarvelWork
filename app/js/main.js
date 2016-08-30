@@ -60,13 +60,14 @@ app.controller('myCtrl',['$scope', '$state', function ($scope, $state) {
     heroOneEvent, heroTwoEvent
   ]
 
-  function clear() {
+  $scope.clear = function () {
   var heroOne;
+	$('#watcher').html('Watcher Watch');
       $scope.heroOneReturn= {
         id: '',
         description: '',
         img: '',
-        name: '',
+        name: 'Watcher Watch',
       }
       $scope.heroTwoReturn= {
         id: '',
@@ -121,6 +122,7 @@ app.controller('myCtrl',['$scope', '$state', function ($scope, $state) {
 				else{
 				$('#heroOneDescription').html($scope.heroOneReturn.description)
 				}
+				$('#watcher').html($scope.heroOneReturn.name);
 				$('#heroOneName').html($scope.heroOneReturn.name);
 				for(var j = 0; j<heroOneEvent.length; j ++){
 				$('#eventList').append('<li class = "eventList"> * '+heroOneEvent[j]+'</li>');
@@ -155,7 +157,6 @@ app.controller('myCtrl',['$scope', '$state', function ($scope, $state) {
 	}
 
 });
-        clear();
 }
 
 $scope.testTwo = function(){
