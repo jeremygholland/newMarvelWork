@@ -1,6 +1,12 @@
+@import 'search';
+@import 'home';
+
 @font-face{
   font-family: 'marvelComics';
   src: url('fonts/AVENGEANCE.otf') format('truetype');;
+}
+body{
+max-height: 100vh;
 }
 #watcher{
   font-family: 'marvelComics' ;
@@ -13,6 +19,7 @@
 .containApp{
   width: 100vw;
   height: 100vh;
+  overflow: hidden;
   background-color: #333333;
   display: flex;
   justify-content: center;
@@ -29,11 +36,11 @@ display: none;
     input{
       width: 100%;
       height: 40px;
-      font-size: 18px;
+      font-size: 3vw;
       text-align: center;
     }
     input::-webkit-input-placeholder{
-      font-size: 18px;
+      font-size: 3vw;
       text-align: center;
     }
   }
@@ -45,11 +52,11 @@ display: none;
     input{
       width: 100%;
       height: 40px;
-      font-size: 18px;
+      font-size: 3vw;
       text-align: center;
     }
     input::-webkit-input-placeholder{
-      font-size: 18px;
+      font-size: 3vw;
       text-align: center;
     }
   }
@@ -65,4 +72,9 @@ display: none;
 #myNav{
   background-color: #ED1323;
 
+}
+
+#imgFlash {
+ width: 100%;
+ height: 100%;
 }

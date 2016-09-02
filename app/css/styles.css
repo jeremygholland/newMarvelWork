@@ -1,6 +1,121 @@
+#heroOneImg {
+  z-index: -200;
+  min-height: 500px; }
+  #heroOneImg div {
+    height: 100%;
+    width: 50%; }
+
+.containComic {
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  background-color: white;
+  background-size: cover;
+  width: 80%;
+  margin: 0 auto;
+  padding-bottom: 50px;
+  min-height: 80vh;
+  z-index: 2000; }
+  .containComic .containall {
+    position: absolute;
+    z-index: -250;
+    height: 100%;
+    width: 100%;
+    opacity: .1; }
+  .containComic .name {
+    width: 100%; }
+  .containComic .panel {
+    width: 30%;
+    max-height: 300px;
+    overflow-y: scroll;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding: 20px 20px 20px 20px;
+    background-color: #FFF;
+    opacity: .70;
+    border-radius: 10px;
+    border: 1px dotted #333333;
+    position: relative; }
+    .containComic .panel p {
+      opacity: 1; }
+  .containComic #divider1 {
+    width: 5px;
+    background-color: #333;
+    position: absolute;
+    height: 100%;
+    left: 33%; }
+  .containComic #divider2 {
+    width: 5px;
+    background-color: #333;
+    color: white;
+    position: absolute;
+    height: 100%;
+    left: 66%; }
+  .containComic #divider3 {
+    width: 100%;
+    background-color: #333;
+    height: 5px;
+    position: absolute;
+    bottom: 40%;
+    margin-bottom: 50px; }
+
+#searchImg {
+  background-image: url("../images/search.jpg");
+  background-size: cover;
+  width: 80vw;
+  height: 80vh; }
+  #searchImg form {
+    position: absolute;
+    bottom: 0;
+    font-size: 28px;
+    width: 80vw; }
+    #searchImg form input {
+      font-size: 4vw;
+      height: 4vw;
+      color: white;
+      padding-bottom: 20px;
+      border-bottom: 4px solid #EC1D25; }
+    #searchImg form input:active, #searchImg form input:hover, #searchImg form input:focus {
+      border-bottom: 3px solid #fff; }
+    #searchImg form input::-webkit-input-placeholder {
+      font-family: helvetica;
+      font-size: 4vw;
+      color: white;
+      padding-bottom: 20px; }
+    #searchImg form input:-moz-placeholder {
+      font-size: 4vw;
+      color: white;
+      padding-bottom: 2vh; }
+    #searchImg form input::-moz-placeholder {
+      font-size: 4vw;
+      color: white; }
+    #searchImg form :-ms-input-placeholder {
+      font-size: 4vw;
+      color: white;
+      padding-bottom: 2vh; }
+
+.ui-autocomplete {
+  height: 5vh;
+  display: flex;
+  width: 80vw !important;
+  flex-wrap: wrap;
+  flex-direction: row;
+  overflow: scroll;
+  background-color: white;
+  bottom: 0 !important;
+  color: #333;
+  font-size: 20px;
+  list-style-type: disc !important; }
+  .ui-autocomplete li {
+    margin-left: 10px; }
+
 @font-face {
   font-family: 'marvelComics';
   src: url("fonts/AVENGEANCE.otf") format("truetype"); }
+
+body {
+  max-height: 100vh; }
 
 #watcher {
   font-family: 'marvelComics'; }
@@ -13,6 +128,7 @@
 .containApp {
   width: 100vw;
   height: 100vh;
+  overflow: hidden;
   background-color: #333333;
   display: flex;
   justify-content: center; }
@@ -29,10 +145,10 @@
     .containStart .leftInput input {
       width: 100%;
       height: 40px;
-      font-size: 18px;
+      font-size: 3vw;
       text-align: center; }
     .containStart .leftInput input::-webkit-input-placeholder {
-      font-size: 18px;
+      font-size: 3vw;
       text-align: center; }
   .containStart button {
     width: 10%; }
@@ -41,10 +157,10 @@
     .containStart .rightInput input {
       width: 100%;
       height: 40px;
-      font-size: 18px;
+      font-size: 3vw;
       text-align: center; }
     .containStart .rightInput input::-webkit-input-placeholder {
-      font-size: 18px;
+      font-size: 3vw;
       text-align: center; }
 
 .homeBtn {
@@ -54,3 +170,7 @@
 
 #myNav {
   background-color: #ED1323; }
+
+#imgFlash {
+  width: 100%;
+  height: 100%; }

@@ -1,5 +1,3 @@
-
-
 var app = angular.module('app', ['ui.router'])
 
 app.config([
@@ -16,6 +14,11 @@ app.config([
 				controller: 'myCtrl',
 				url: '/search',
 				templateUrl: 'views/search.html'
+			})
+			.state('characterImg', {
+			  controller: 'myCtrl',
+			  url: '/img',
+			  templateUrl: 'views/characterImg.html'
 			})
 			$urlRouterProvider.otherwise('home');
 	}
@@ -44,9 +47,9 @@ app.controller('myCtrl',['$scope', '$state', function ($scope, $state) {
 	 "Thena", "Thing", "Thor", "Thor (Goddess of Thunder)", "Thor Girl", "Thunderball", "Thunderbird (John Proudstar)", "Thunderbird (Neal Shaara)", "Thunderbolt (Bill Carver)", "Thunderbolt Ross", "Thunderbolts", "Thundra", "Tiger Shark", "Tiger's Beautiful Daughter", "Tigra (Greer Nelson)", "Timeslip", "Tinkerer", "Titania", "Titanium Man (Topolov)", "Toad", "Toad Men", "Tomas", "Tombstone", "Tomorrow Man", "Tony Stark", "Toro (Thomas Raymond)", "Toxin", "Toxin (Eddie Brock)", "Trauma", "Triathlon", "Trish Tilby", "Triton", "True Believers", "Turbo", "Tusk", "Two-Gun Kid", "Tyger Tiger", "Typhoid Mary", "Tyrannus", "U-Foes", "U-Go Girl", "U.S. Agent", "Uatu The Watcher", "Ulik", "Ultimatum", "Ultimo", "Ultra-Adaptoid", "Ultragirl (Earth-93060)", "Ultron", "Umar", "Unicorn", "Union Jack (Brian Falsworth)", "Union Jack (Joseph Chapman)", "Union Jack (Montgomery Falsworth)", "Unus", "Valeria Richards", "Valkyrie (Samantha Parrington)", "Vampiro", "Vance Astro", "Vapor", "Vargas", "Vector", "Veda", "Vengeance (Michael Badilino)", "Venom (Flash Thompson)", "Venus Dee Milo", "Vermin (Edward Whelan)", "Vertigo (Savage Land Mutate)", "Victor Mancha", "Victor Von Doom", "Vin Gonzales", "Vindicator", "Violations", "Viper", "Virginia Dare", "Vision", "Vivisector", "Vulcan (Gabriel Summers)", "Vulture (Adrian Toomes)", "Vulture (Blackie Drago)", "Wallflower",
 	 "Wallop", "Wallow", "War (Abraham Kieros)", "War Machine (Parnell Jacobs)", "Warbird", "Warbound", "Warhawk (Mitchell Tanner)", "Warlock (Janie Chin)", "Warpath", "Warren Worthington III", "Warstar", "Wasp", "Weapon Omega", "Weapon X", "Wendell Rand", "Wendell Vaughn", "Wendigo", "Werewolf By Night", "Whiplash (Mark Scarlotti)", "Whirlwind", "Whistler", "White Queen (Adrienne Frost)", "White Tiger (Angela Del Toro)", "Whizzer (Stanley Stewart)", "Wiccan", "Wild Child", "Wild Pack", "Wildside", "William Stryker", "Wilson Fisk", "Wind Dancer", "Winter Soldier", "Wither", "Wolf Cub", "Wolfpack", "Wolfsbane", "Wolver-dok", "Wolverine", "Wonder Man", "Wong", "Wraith", "Wrecker", "Wrecking Crew", "X-23", "X-51", "X-Babies", "X-Cutioner", "X-Factor", "X-Factor Investigations", "X-Force", "X-Man", "X-Men", "X-Ray (James Darnell)", "X-Statix", "X.S.E.", "Xavin", "Xorn (Kuan-Yin Xorn)", "Yellow Claw", "Yellowjacket (Rita DeMara)", "Young Avengers", "Young X-Men", "Zaladane", "Zaran", "Zarda", "Zarek", "Zeigeist", "Zemo", "Zodiak", "Zombie (Simon Garth)", "Zuras", "Zzzax"
 	]
-
 		$('#firstInput').autocomplete({
-			source: totalChar
+			source: totalChar,
+			minLength: 5
 		});
 	});
 
@@ -102,7 +105,6 @@ app.controller('myCtrl',['$scope', '$state', function ($scope, $state) {
         $.each(json.data.results[0].events.items, function(i, item){
           heroOneEvent.push(item.name)
         })
-						$state.go('search');
       },
       error: function() {
         console.log('coulnd\'t that hero.')
@@ -110,28 +112,18 @@ app.controller('myCtrl',['$scope', '$state', function ($scope, $state) {
       }
     })
     setTimeout(function(){
-
-			if($scope.heroOneReturn.id == null){
-				alert('we could not find that guy')
-			}
-			else{
-				$('.containComic').css('background-image', 'url("' + $scope.heroOneReturn.img + '")');
-				if($scope.heroOneReturn.description.length< 1){
-					$('#heroOneDescription').html('it doesn\'t that this character has a description in Marvel\'s API...')
-				}
-				else{
-				$('#heroOneDescription').html($scope.heroOneReturn.description)
-				}
-				$('#watcher').html($scope.heroOneReturn.name);
-				$('#heroOneName').html($scope.heroOneReturn.name);
-				for(var j = 0; j<heroOneEvent.length; j ++){
-				$('#eventList').append('<li class = "eventList"> * '+heroOneEvent[j]+'</li>');
-				}
-			}
+	$state.go('characterImg');
 				callback(null, 1);
 			}, 3000);
   },
 	two: function(callback){
+		setTimeout(function(){
+		$("#imgFlash").attr("src", $scope.heroOneReturn.img);
+			callback(null, 1);
+		}, 10);
+
+	},
+	three: function(callback){
 		$.ajax({
 			type:"GET",
 			url: 'http://gateway.marvel.com:80/v1/public/characters/' + $scope.heroOneReturn.id +
@@ -148,12 +140,35 @@ app.controller('myCtrl',['$scope', '$state', function ($scope, $state) {
 
 			}
 		})
-
 		setTimeout(function(){
+			$state.go('search');
 
 			callback(null, 1);
-		}, 2500);
+		}, 3000);
 
+	},
+	four: function(callback){
+		setTimeout(function(){
+
+		if($scope.heroOneReturn.id == null){
+			alert('we could not find that guy')
+		}
+		else{
+			$('.containComic').css('background-image', 'url("' + $scope.heroOneReturn.img + '")');
+			if($scope.heroOneReturn.description.length< 1){
+				$('#heroOneDescription').html('it doesn\'t that this character has a description in Marvel\'s API...')
+			}
+			else{
+			$('#heroOneDescription').html($scope.heroOneReturn.description)
+			}
+			$('#watcher').html($scope.heroOneReturn.name);
+			$('#heroOneName').html($scope.heroOneReturn.name);
+			for(var j = 0; j<heroOneEvent.length; j ++){
+			$('#eventList').append('<li class = "eventList"> * '+heroOneEvent[j]+'</li>');
+			}
+		}
+		callback(null, 1);
+	}, 50);
 	}
 
 });
