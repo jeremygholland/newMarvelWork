@@ -12,7 +12,7 @@
   flex-wrap: wrap;
   background-color: white;
   background-size: cover;
-  width: 80%;
+  width: 80vw;
   margin: 0 auto;
   padding-bottom: 50px;
   min-height: 80vh;
@@ -33,7 +33,7 @@
     margin-bottom: 50px;
     padding: 20px 20px 20px 20px;
     background-color: #FFF;
-    opacity: .70;
+    opacity: .85;
     border-radius: 10px;
     border: 1px dotted #333333;
     position: relative; }
@@ -59,6 +59,22 @@
     position: absolute;
     bottom: 40%;
     margin-bottom: 50px; }
+
+#containEvents {
+  display: flex;
+  justify-content: center; }
+
+#title {
+  text-align: center; }
+
+.containName {
+  display: flex;
+  justify-content: center; }
+
+#heroOneName {
+  font-size: 3vw;
+  margin-top: -10px;
+  text-align: center; }
 
 #searchImg {
   background-image: url("../images/search.jpg");
@@ -98,15 +114,15 @@
 .ui-autocomplete {
   height: 5vh;
   display: flex;
-  width: 80vw !important;
+  width: 80vw;
   flex-wrap: wrap;
   flex-direction: row;
   overflow: scroll;
   background-color: white;
-  bottom: 0 !important;
+  bottom: 0;
   color: #333;
   font-size: 20px;
-  list-style-type: disc !important; }
+  list-style-type: disc; }
   .ui-autocomplete li {
     margin-left: 10px; }
 

@@ -2,26 +2,31 @@
 <html lang="en" ng-app="app">
 
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
+       <meta name="description" content="">
+       <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <title></title>
   <!--build:css css/styles.min.css-->
   <link rel="stylesheet" href="css/print.css">
   <link rel="stylesheet" href="css/materialize.css">
   <link rel="stylesheet" href="css/search.css">
-    <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/media.css">
   <script src = "js/lib/asynch.js"></script>
   <script src="js/lib/angular.min.js"></script>
   <script src="js/lib/jQuery.js"></script>
   <script src="js/lib/angularUiRouter.js"></script>
   <script src= "js/lib/jquery-ui.js"></script>
+
   <!--endbuild-->
 </head>
 
 <body ng-controller="myCtrl">
   <nav id = "myNav">
     <a ui-sref="home" ng-click ="clear()"><i class="fa fa-home fa-3x" aria-hidden="true"></i></a>
-    <ul class="right hide-on-med-and-down">
+    <ul class="right ">
         <li><a href="#" style = "font-size: 28px;" id = "watcher">Watcher Watch</a></li>
       </ul>
 
