@@ -25,7 +25,7 @@ app.config([
 ])
 
 
-app.controller('myCtrl',['$scope', '$state', function ($scope, $state) {
+app.controller('myCtrl',['$scope', '$timeout', '$state', function ($scope, $timeout, $state) {
 
 
 	$(function() {
@@ -53,14 +53,16 @@ app.controller('myCtrl',['$scope', '$state', function ($scope, $state) {
 		});
 	});
 
-
 	var newNumber;
-	$scope.heroOneComic = [];
+	$scope.heroOneComic;
   var heroOneEvent =[];
   var heroTwoEvent = [];
 	var heroOneCharacters= [];
-	var heroOneReturn = []
-
+	var comicOneDate = [];
+	var secondImages = []
+	var heroOneReturn= '';
+	$scope.heroTwoComic= [];
+	$scope.heroOneReturn;
   var containEvents = [
     heroOneEvent, heroTwoEvent
   ]
@@ -69,19 +71,7 @@ app.controller('myCtrl',['$scope', '$state', function ($scope, $state) {
   $scope.clear = function () {
   var heroOne;
 	$('#watcher').html('Watcher Watch');
-      $scope.heroOneReturn= {
-        id: '',
-        description: '',
-        img: '',
-        name: 'Watcher Watch',
       }
-      $scope.heroTwoReturn= {
-        id: '',
-        description: '',
-        img: '',
-        name: ''
-      }
-  }
 
   var apiKey = '64f1f5a1ab896a13dd9c6b4009b0817e';
 
@@ -97,17 +87,16 @@ app.controller('myCtrl',['$scope', '$state', function ($scope, $state) {
 				'&limit=100&apikey='+apiKey,
       dataType: 'json',
       success: function(json){
-        $scope.heroOneReturn = {
+       window.heroOneReturn = {
             description: json.data.results[0].description,
             img: json.data.results[0].thumbnail.path + '/detail.jpg',
             name: json.data.results[0].name,
 						id:json.data.results[0].id,
 						comics: json.data.results[0].comics.available
         }
-
-				var newNumber= Math.floor(Math.random()*($scope.heroOneReturn.comics + 1))
-				console.log(newNumber)
-
+				$scope.heroOneReturn = window.heroOneReturn;
+				var id = $scope.heroOneReturn.id;
+				console.log($scope.heroOneReturn.id)
         $.each(json.data.results[0].events.items, function(i, item){
           heroOneEvent.push(item.name)
         })
@@ -119,102 +108,143 @@ app.controller('myCtrl',['$scope', '$state', function ($scope, $state) {
 
     })
     setTimeout(function(){
-	$state.go('characterImg');
 				callback(null, 1);
+				$state.go('characterImg');
 			}, 3000);
   },
 	two: function(callback){
 		setTimeout(function(){
-		$("#imgFlash").attr("src", $scope.heroOneReturn.img);
-			callback(null, 1);
+$('#imgFlash').attr('src', $scope.heroOneReturn.img)
+callback(null, 1);
 		}, 10);
 
-	},
-	three: function(callback){
-		$.ajax({
-		  type:"GET",
-		  url: 'http://gateway.marvel.com:80/v1/public/characters/' + $scope.heroOneReturn.id +
-		    '/comics?offset='+newNumber+'&apikey='+apiKey,
-		  dataType: 'json',
-		  success: function(json){
-		    $scope.heroOneComic = {
-		        name: json.data.results[0].name,
-		        img: json.data.results[0].thumbnail.path + '/detail.jpg',
-		        name: json.data.results[0].name,
-		        id:json.data.results[0].id
-		    }
-		    console.log($scope.heroOneComic.img)
-		    $.each(json.data.results[0].events.items, function(i, item){
-		      heroOneEvent.push(item.name)
-		    })
-		    $.each(json.data.results[0].series.items, function(i, item){
-		      heroStories.push(item.name)
-		    })
-		    console.log(heroStories)
-		  },
-		  error: function() {
-		    console.log('coulnd\'t that hero.')
+	}
+})
+};
+$scope.secondClick = function(){
+	$scope.heroOneReturn = window.heroOneReturn;
+	var endDate = $('#endDate').val();
+	var startDate = $('#startDate').val();
+		async.series({
+			one: function(callback){
 
-		  }
-		})
-		setTimeout(function(){
-		$("#imgFlash").attr("src", $scope.heroOneReturn.img);
-			callback(null, 1);
-		}, 10);
+				$.ajax({
+				  type:"GET",
+				  url: 'http://gateway.marvel.com:80/v1/public/characters/'+$scope.heroOneReturn.id +'/comics?dateRange='+startDate+'%2C'+endDate+'&apikey='+apiKey,
+				  dataType: 'json',
+				  success: function(json){
+				    $scope.heroOneComic = {
+				        name: json.data.results[0].name,
+				        img: json.data.results[0].thumbnail.path + '/detail.jpg',
+				        name: json.data.results[0].name,
+				        id:json.data.results[0].id
+				    }
+						for (var j = 0; j<json.data.count; j++){
+							comicOneDate.push(json.data.results[j].thumbnail)
+						}
+						for (var j = 0; j<20; j++){
+							secondImages.push(json.data.results[j].thumbnail.path + '/detail.jpg')
+						}
+						console.log(secondImages);
 
-	},
-	four: function(callback){
-		$.ajax({
-			type:"GET",
-			url: 'http://gateway.marvel.com:80/v1/public/characters/' + $scope.heroOneReturn.id +
-				'/stories?apikey='+apiKey,
-			dataType: 'json',
-			success: function(json){
-				$.each(json.data.results[0].events.items, function(i, item){
-          heroOneCharacters.push(item.name)
-        })
-				var eventThumb = json.data.results[0].thumbnail.path + '/detail.jpg';
-				console.log(heroOneCharacters)
+				    		  },
+				  error: function() {
+				    console.log('coulnd\'t that hero.')
+
+				  }
+				})
+				setTimeout(function(){
+				$("#imgFlash").attr("src", $scope.heroOneReturn.img);
+					callback(null, 1);
+				}, 3000);
+
 			},
-						error: function() {
-				console.log('coulnd\'t that hero.')
+			two: function(callback){
+						var newNumber2 = Math.floor(Math.random()*($scope.heroOneReturn.comics + 1));
+				$.ajax({
+				  type:"GET",
+				  url: 'http://gateway.marvel.com:80/v1/public/characters/' + $scope.heroOneReturn.id +
+				    '/comics?offset='+newNumber2+'&apikey='+apiKey,
+				  dataType: 'json',
+				  success: function(json){
+				    $scope.heroTwoComic = {
+				        name: json.data.results[0].name,
+				        img: json.data.results[0].thumbnail.path + '/detail.jpg',
+				        name: json.data.results[0].name,
+				        id:json.data.results[0].id
+				    }
+				    console.log($scope.heroTwoComic.img)
+				    		  },
+				  error: function() {
+				    console.log('coulnd\'t that hero.')
 
+				  }
+				})
+				setTimeout(function(){
+				console.log(secondImages);
+					callback(null, 1);
+				}, 3000);
+			},
+			three: function(callback){
+				$.ajax({
+					type:"GET",
+					url: 'http://gateway.marvel.com:80/v1/public/characters/' + $scope.heroOneReturn.id +
+						'/stories?apikey='+apiKey,
+					dataType: 'json',
+					success: function(json){
+						$.each(json.data.results[0].events.items, function(i, item){
+		          heroOneCharacters.push(item.name)
+		        })
+						},
+								error: function() {
+						console.log('coulnd\'t that hero.')
+
+					}
+				})
+				setTimeout(function(){
+
+					callback(null, 1);
+				}, 3000);
+
+			},
+			four: function(callback){
+
+				setTimeout(function(){
+					$state.go('search');
+					callback(null, 1);
+				}, 6000);
+			},
+			five: function(callback){
+				$state.go('search');
+				setTimeout(function(){
+
+				if($scope.heroOneReturn.id == null){
+				}
+				else{
+					$('#panelOne').css('background-image', 'url("' + $scope.heroOneReturn.img + '")');
+					$('#panelTwo').css('background-image', 'url("' + $scope.heroOneComic.img + '")');
+					$('#panelThree').css('background-image', 'url("' + $scope.heroTwoComic.img + '")');
+					if($scope.heroOneReturn.description.length< 1){
+						$('#heroOneDescription').html('it doesn\'t that this character has a description in Marvel\'s API...')
+					}
+					else{
+					$('#heroOneDescription').html($scope.heroOneReturn.description)
+					}
+					$('#watcher').html($scope.heroOneReturn.name);
+					$('#heroOneName').html($scope.heroOneReturn.name);
+					for(var j = 0; j<heroOneEvent.length; j ++){
+
+					$('#eventList').append('<li id = "'+heroOneEvent[j]+'"> '+heroOneEvent[j]+'</li>');
+					}
+										console.log(heroOneEvent)
 			}
-		})
-		setTimeout(function(){
-			$state.go('search');
-
-			callback(null, 1);
-		}, 3000);
-
-	},
-	five: function(callback){
-		setTimeout(function(){
-
-		if($scope.heroOneReturn.id == null){
-		}
-		else{
-			$('#panelOne').css('background-image', 'url("' + $scope.heroOneReturn.img + '")');
-			$('#panelTwo').css('background-image', 'url("' + $scope.heroOneComic.img + '")');
-			if($scope.heroOneReturn.description.length< 1){
-				$('#heroOneDescription').html('it doesn\'t that this character has a description in Marvel\'s API...')
+				callback(null, 1);
+			}, 50);
 			}
-			else{
-			$('#heroOneDescription').html($scope.heroOneReturn.description)
-			}
-			$('#watcher').html($scope.heroOneReturn.name);
-			$('#heroOneName').html($scope.heroOneReturn.name);
-			for(var j = 0; j<heroOneEvent.length; j ++){
-
-			$('#eventList').append('<li id = "'+heroOneEvent[j]+'"> '+heroOneEvent[j]+'</li>');
-			}
-								console.log(heroOneEvent)
-	}
-		callback(null, 1);
-	}, 50);
-	}
-
-});
+})
 }
+
+
+
 
 }]);
