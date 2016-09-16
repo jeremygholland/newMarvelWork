@@ -25,7 +25,7 @@ app.config([
 ])
 
 
-app.controller('myCtrl',['$scope', '$timeout', '$state', function ($scope, $timeout, $state) {
+app.controller('myCtrl',['$scope', '$http', '$timeout', '$state', function ($scope, $http, $timeout, $state) {
 
 
 	$(function() {
@@ -59,7 +59,7 @@ app.controller('myCtrl',['$scope', '$timeout', '$state', function ($scope, $time
   var heroOneEvent =[];
   var heroTwoEvent = [];
 	var heroOneCharacters= [];
-	var comicOneDate = [];
+var firstImg = '';
 	var secondImages = []
 	var heroOneReturn= '';
 	$scope.heroTwoComic= [];
@@ -68,6 +68,7 @@ app.controller('myCtrl',['$scope', '$timeout', '$state', function ($scope, $time
     heroOneEvent, heroTwoEvent
   ]
 	var heroStories= [];
+	$scope.heroOneImg = '';
 
   $scope.clear = function () {
   var heroOne;
@@ -82,44 +83,24 @@ app.controller('myCtrl',['$scope', '$timeout', '$state', function ($scope, $time
         	async.series({
             one: function(callback){
             var heroOne = $('#firstInput').val()
-    $.ajax({
-      type:"GET",
-      url: 'http://gateway.marvel.com:80/v1/public/characters?name=' + heroOne +
-				'&limit=100&apikey='+apiKey,
-      dataType: 'json',
-      success: function(json){
-       window.heroOneReturn = {
-            description: json.data.results[0].description,
-            img: json.data.results[0].thumbnail.path + '/detail.jpg',
-            name: json.data.results[0].name,
-						id:json.data.results[0].id,
-						comics: json.data.results[0].comics.available
-        }
-				$scope.heroOneReturn = window.heroOneReturn;
-				var id = $scope.heroOneReturn.id;
-				console.log($scope.heroOneReturn.id)
-        $.each(json.data.results[0].events.items, function(i, item){
-          heroOneEvent.push(item.name)
-        })
-      },
-      error: function() {
-        console.log('coulnd\'t that hero.')
+						$http({
+						    url: 'http://gateway.marvel.com:80/v1/public/characters?name=' + heroOne +'&limit=100&apikey='+apiKey,
+						    method: "GET"
+						}).then(function successCallback(response) {
+							$scope.heroOneReturn = response.data.data
+							 console.log($scope.heroOneReturn.results[0].id);
 
-      }
-
-    })
-    setTimeout(function(){
-				callback(null, 1);
-				$state.go('characterImg');
-			}, 3000);
-  },
-	two: function(callback){
-		setTimeout(function(){
-$('#imgFlash').attr('src', $scope.heroOneReturn.img)
-callback(null, 1);
-		}, 10);
-
-	}
+							  $.each($scope.heroOneReturn.results[0].events.items, function(i, item){
+								 heroOneEvent.push(item.name)
+							 })
+						}).then(function(response){
+							$timeout(function(){
+								$scope.heroOneImg = $scope.heroOneReturn.results[0].thumbnail.path + '/detail.jpg';
+								console.log($scope.heroOneImg)
+								$state.go('characterImg');
+							})
+						})
+  }
 })
 };
 $scope.secondClick = function(){
