@@ -53,6 +53,7 @@ app.controller('myCtrl',['$scope', '$timeout', '$state', function ($scope, $time
 		});
 	});
 
+
 	var newNumber;
 	$scope.heroOneComic;
   var heroOneEvent =[];
@@ -124,10 +125,16 @@ callback(null, 1);
 $scope.secondClick = function(){
 	$scope.heroOneReturn = window.heroOneReturn;
 	var endDate = $('#endDate').val();
-	var startDate = $('#startDate').val();
+		var startDate = $('#startDate').val();
+
+
+		if (endDate<=startDate){
+				alert('please enter a start date that is before the end date')
+		}
+		else{
+
 		async.series({
 			one: function(callback){
-
 				$.ajax({
 				  type:"GET",
 				  url: 'http://gateway.marvel.com:80/v1/public/characters/'+$scope.heroOneReturn.id +'/comics?dateRange='+startDate+'%2C'+endDate+'&apikey='+apiKey,
@@ -156,7 +163,7 @@ $scope.secondClick = function(){
 				setTimeout(function(){
 				$("#imgFlash").attr("src", $scope.heroOneReturn.img);
 					callback(null, 1);
-				}, 3000);
+				}, 6000);
 
 			},
 			two: function(callback){
@@ -183,7 +190,7 @@ $scope.secondClick = function(){
 				setTimeout(function(){
 				console.log(secondImages);
 					callback(null, 1);
-				}, 3000);
+				}, 6000);
 			},
 			three: function(callback){
 				$.ajax({
@@ -242,6 +249,7 @@ $scope.secondClick = function(){
 			}, 50);
 			}
 })
+}
 }
 
 
