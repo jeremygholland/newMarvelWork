@@ -27,8 +27,9 @@
 
   </div>
   <div id="divider3">&nbsp;</div>
-  <div class="panel" id = "panelFive">
-      
+  <div class="panel" id = "panelFive" ng-repeat ="secondImage in secondImages track by $index">
+    <img ng-src="{{secondImage}}" alt="">
+
   </div>
   <div id="divider3">&nbsp;</div>
   <div class="panel" id = "panelSix">
