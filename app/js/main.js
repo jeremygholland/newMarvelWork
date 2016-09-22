@@ -77,6 +77,7 @@ var firstImg = '';
 
 $scope.clear = function(){
 	$scope.heroOne = '';
+	$('#watcher').html('Watcher Watch');
 }
   var apiKey = '64f1f5a1ab896a13dd9c6b4009b0817e';
 
