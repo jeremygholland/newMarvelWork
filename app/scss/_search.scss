@@ -154,3 +154,15 @@
     margin-left: 10px;
   }
 }
+.containComics{
+  display:flex;
+  width: 100%;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  .singleComic{
+    width: 10%;
+    min-width: 150px;
+  }
+}

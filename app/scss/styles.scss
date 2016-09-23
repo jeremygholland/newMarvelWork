@@ -1,9 +1,6 @@
 @import 'search';
 @import 'home';
-
-
-
-
+@import 'date';
 @font-face{
   font-family: 'marvelComics';
   src: url('fonts/AVENGEANCE.otf') format('truetype');;
@@ -81,4 +78,16 @@ display: none;
 #imgFlash {
  width: 100%;
  height: 100%;
+}
+
+@media screen and (max-width:400px) {
+    #divider1, #divider2, #divider3{
+      display: none !important;
+    }
+   .panel{
+     width: 80vw;
+     p{
+       font-size: 100px;
+     }
+   }
 }

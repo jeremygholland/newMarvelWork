@@ -76,12 +76,14 @@ var firstImg = '';
 	var heroStories= [];
 
 $scope.clear = function(){
+
 	$scope.heroOne = '';
 	$('#watcher').html('Watcher Watch');
 }
   var apiKey = '64f1f5a1ab896a13dd9c6b4009b0817e';
 
   	$scope.clickMe = function() {
+
             var heroOne = $('#firstInput').val()
 						$http({
 						    url: 'http://gateway.marvel.com:80/v1/public/characters?name=' + heroOne +'&limit=100&apikey='+apiKey,
@@ -116,10 +118,24 @@ $scope.secondClick = function(){
 console.log(window.heroOne);
 	$scope.heroOneReturn = window.heroOne;
 	var endDate = $('#endDate').val();
+	Date.prototype.yyyymmdd = function() {
+		var mm = this.getMonth() + 1; // getMonth() is zero-based
+		var dd = this.getDate();
+
+		return [this.getFullYear(), !mm[1] && '0', mm, !dd[1] && '0', dd].join(''); // padding
+	};
+
+	var date = new Date();
+
 		var startDate = $('#startDate').val();
 		if (endDate<=startDate){
 				alert('please enter a start date that is before the end date')
 		}
+		else if(endDate> 	date.yyyymmdd()){
+			alert('The latest date that you can enter is today.')
+		}
+
+
 		else{
 			$http({
 					url: 'http://gateway.marvel.com:80/v1/public/characters/'+$scope.heroOneReturn.id +'/comics?dateRange='+startDate+'%2C'+endDate+'&apikey='+apiKey,
