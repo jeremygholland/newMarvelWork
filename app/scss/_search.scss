@@ -154,13 +154,25 @@
     margin-left: 10px;
   }
 }
+.containName{
+  margin-top: 25vh;
+color: #fff;
+
+}
+#characterDescription{
+
+  margin-bottom: 20px;
+  width: 85vw;
+  margin: 20px auto 20px;
+}
 .containComics{
   display:flex;
-  width: 100%;
+  width: 90vw;
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: center;
-  width: 100%;
+  margin-bottom: 20vh;
+
   .singleComic{
     width: 10%;
     min-width: 150px;

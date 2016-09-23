@@ -1,7 +1,7 @@
 <div>
   <img ng-src={{heroOne.img}}>
 </div>
-<div class = "inputDesc">please select a start date</div><input type="month" id="startDate">
+<div class = "inputDesc">please select a start date</div><input type="month" id="startDate" min="1961-11" max="2017-12">
 <div class = "inputDesc">please select an end date</div>
-<input type="month" id="endDate">
+<input type="month" id="endDate" max="2017-12">
 <button ng-click = "secondClick()">clickMe</button>

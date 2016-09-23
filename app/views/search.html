@@ -1,6 +1,20 @@
+<div class="containSearchField">
+  <div class="containName">
+    <h1>{{heroOne.name}}</h1>
+  </div>
+  <div>
+    <span></span>
+  </div>
+<div id ="characterDescription" style = "color: #fff;">
+  {{heroOne.description}}
+</div>
 
+<div class="containDates" >
+  {{endDate}} {{startDate}}
+</div>
 <div class="containComics">
   <div ng-repeat ="secondImage in secondImages" class="singleComic">
-   <img ng-src="{{secondImage}}" alt="" width="150" height = "228"></div>
+   <img ng-src="{{secondImage.images}}" alt="" width="150" height = "228"> {{secondImage.titles}}</div>
 
+</div>
 </div>
