@@ -6,7 +6,7 @@
   src: url('fonts/AVENGEANCE.otf') format('truetype');;
 }
 body{
-max-height: 100vh;
+background-color: #333;
 }
 #watcher{
   font-family: 'marvelComics' ;
@@ -17,12 +17,11 @@ max-height: 100vh;
   opacity: .5
 }
 .containApp{
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
+  overflow-x: hidden;
   background-color: #333333;
   display: flex;
   justify-content: center;
+  height: 100vh;
 }
 .ui-helper-hidden-accessible{
 display: none;

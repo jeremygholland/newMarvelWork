@@ -105,10 +105,11 @@
     font-size: 28px;
     width: 80vw;
     input {
-      font-size: 4vw;
-      height: 4vw;
+      font-size: 3vh;
+      height: 3vh;
       color: white;
-      padding-bottom: 20px;
+      padding-bottom: 2vh;
+      margin-bottom: 4vh;
       border-bottom: 4px solid #EC1D25;
     }
     input:active, input:hover,input:focus {
@@ -139,7 +140,7 @@
   }
 }
 .ui-autocomplete{
-  height: 5vh;
+  height: 15vh;
   display: flex;
   width: 80vw;
   flex-wrap: wrap;
@@ -155,26 +156,50 @@
   }
 }
 .containName{
-  margin-top: 25vh;
+  margin-top: 0px;
 color: #fff;
 
 }
+.containSearchField{
+
+}
+#imageSearch{
+  display: flex;
+  justify-content: center;
+  div{
+    img{
+      width: 20vw;
+       }
+       margin: 10px;
+  }
+}
 #characterDescription{
 
-  margin-bottom: 20px;
-  width: 85vw;
-  margin: 20px auto 20px;
+
+width: 60vw;
+margin: 10px auto;
 }
 .containComics{
   display:flex;
   width: 90vw;
   flex-wrap: wrap;
   flex-direction: row;
-  justify-content: center;
   margin-bottom: 20vh;
 
   .singleComic{
-    width: 10%;
-    min-width: 150px;
+
   }
+}
+.grid-item:nth-child(3n+1) {
+  img{
+  width: 300px;
+  height: 456px;
+}
+
+}
+.grid-item{
+
+  img{
+  width: 150px;
+}
 }

@@ -90,10 +90,11 @@
     font-size: 28px;
     width: 80vw; }
     #searchImg form input {
-      font-size: 4vw;
-      height: 4vw;
+      font-size: 3vh;
+      height: 3vh;
       color: white;
-      padding-bottom: 20px;
+      padding-bottom: 2vh;
+      margin-bottom: 4vh;
       border-bottom: 4px solid #EC1D25; }
     #searchImg form input:active, #searchImg form input:hover, #searchImg form input:focus {
       border-bottom: 3px solid #fff; }
@@ -115,7 +116,7 @@
       padding-bottom: 2vh; }
 
 .ui-autocomplete {
-  height: 5vh;
+  height: 15vh;
   display: flex;
   width: 80vw;
   flex-wrap: wrap;
@@ -130,24 +131,34 @@
     margin-left: 10px; }
 
 .containName {
-  margin-top: 25vh;
+  margin-top: 0px;
   color: #fff; }
 
+#imageSearch {
+  display: flex;
+  justify-content: center; }
+  #imageSearch div {
+    margin: 10px; }
+    #imageSearch div img {
+      width: 20vw; }
+
 #characterDescription {
-  margin-bottom: 20px;
-  width: 85vw;
-  margin: 20px auto 20px; }
+  width: 60vw;
+  margin: 10px auto; }
 
 .containComics {
   display: flex;
   width: 90vw;
   flex-wrap: wrap;
   flex-direction: row;
-  justify-content: center;
   margin-bottom: 20vh; }
-  .containComics .singleComic {
-    width: 10%;
-    min-width: 150px; }
+
+.grid-item:nth-child(3n+1) img {
+  width: 300px;
+  height: 456px; }
+
+.grid-item img {
+  width: 150px; }
 
 input[type=month] {
   height: 35px;
@@ -197,7 +208,7 @@ input::-webkit-calendar-picker-indicator {
   src: url("fonts/AVENGEANCE.otf") format("truetype"); }
 
 body {
-  max-height: 100vh; }
+  background-color: #333; }
 
 #watcher {
   font-family: 'marvelComics'; }
@@ -208,12 +219,11 @@ body {
   opacity: .5; }
 
 .containApp {
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
+  overflow-x: hidden;
   background-color: #333333;
   display: flex;
-  justify-content: center; }
+  justify-content: center;
+  height: 100vh; }
 
 .ui-helper-hidden-accessible {
   display: none; }
