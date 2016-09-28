@@ -19,15 +19,9 @@
   <div class="containDates" >
     {{endDate}} {{startDate}}
   </div>
-  <div class="containComics grid">
-    <div ng-repeat ="secondImage in secondImages" class="singleComic grid-item">
-     <img ng-src="{{secondImage}}" alt="" width="150" height = "228" class = "comicExpand"> </div>
+  <div class="containComics">
+    <div ng-repeat ="secondImage in secondImages" class="item" danny-packery>
+     <img ng-src="{{secondImage}}" alt="" class = "comicExpand"> </div>
 
   </div>
   </div>
-  <script>
-  $('.grid').packery({
-  // options
-  itemSelector: '.grid-item',
-  gutter: 250
-});</script>

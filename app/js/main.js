@@ -203,6 +203,8 @@ $scope.secondClick = function(){
 											window.heroOne.description = "There is no description on marvel's API for this character. "
 										}
 alert('this is working')
+
+
 										$scope.heroOne = window.heroOne;
 									defer.resolve(response);
 				}
@@ -215,4 +217,24 @@ alert('this is working')
 
 
 
+}]);
+
+app.directive('dannyPackery', ['$rootScope', function($rootScope) {
+    return {
+        restrict: 'A',
+        link: function(scope, element, attrs) {
+            console.log('Running dannyPackery linking function!');
+            if($rootScope.packery === undefined || $rootScope.packery === null){
+                console.log('making packery!');
+                $rootScope.packery = new Packery(element[0].parentElement, {columnWidth: '.item'});
+                $rootScope.packery.bindResize();
+                $rootScope.packery.appended(element[0]);
+                $rootScope.packery.items.splice(1,1); // hack to fix a bug where the first element was added twice in two different positions
+            }
+            else{
+                $rootScope.packery.appended(element[0]);
+            }
+            $rootScope.packery.layout();
+        }
+    };
 }]);
