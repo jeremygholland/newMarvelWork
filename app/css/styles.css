@@ -49,24 +49,25 @@
       height: 3vh;
       color: white;
       padding-bottom: 2vh;
-      margin-bottom: 4vh;
+      margin-bottom: 3vh;
       border-bottom: 4px solid #EC1D25; }
     #searchImg form input:active, #searchImg form input:hover, #searchImg form input:focus {
       border-bottom: 3px solid #fff; }
     #searchImg form input::-webkit-input-placeholder {
       font-family: helvetica;
-      font-size: 4vw;
+      font-size: 3vw;
       color: white;
-      padding-bottom: 20px; }
+      padding-bottom: 2vh; }
     #searchImg form input:-moz-placeholder {
-      font-size: 4vw;
+      font-size: 3vw;
       color: white;
       padding-bottom: 2vh; }
     #searchImg form input::-moz-placeholder {
-      font-size: 4vw;
-      color: white; }
+      font-size: 3vw;
+      color: white;
+      padding-bottom: 2vh; }
     #searchImg form :-ms-input-placeholder {
-      font-size: 4vw;
+      font-size: 3vw;
       color: white;
       padding-bottom: 2vh; }
 
@@ -109,13 +110,15 @@
   flex-direction: row;
   margin-bottom: 20vh; }
 
-.item:nth-child(2n) img {
-  width: 20vw; }
-
 .item {
-  display: block !important; }
+  margin: 0 5px; }
   .item img {
-    width: 10vw; }
+    width: 12vw; }
+
+.item:nth-child(2n+1) {
+  margin: 0 5px; }
+  .item:nth-child(2n+1) img {
+    width: 18vw; }
 
 input[type=month] {
   height: 35px;

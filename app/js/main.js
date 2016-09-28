@@ -25,7 +25,7 @@ app.config([
 ])
 
 
-app.controller('myCtrl',['$scope', '$http', '$q', '$timeout', '$state', function ($scope, $http, $q, $timeout, $state) {
+app.controller('myCtrl',['$scope', '$rootScope', '$http', '$q', '$timeout', '$state', function ($scope, $rootScope, $http, $q, $timeout, $state) {
 
 
  var defer = $q.defer();
@@ -81,6 +81,7 @@ var firstImg = '';
 
 $scope.clear = function(){
 		$('.containApp').css('height', '100vh');
+		$rootScope.packery = null;
 	$scope.heroOne = '';
 	$('#watcher').html('Watcher Watch');
 }
@@ -202,7 +203,6 @@ $scope.secondClick = function(){
 										if(window.heroOne.description == ''){
 											window.heroOne.description = "There is no description on marvel's API for this character. "
 										}
-alert('this is working')
 
 
 										$scope.heroOne = window.heroOne;
@@ -226,7 +226,7 @@ app.directive('dannyPackery', ['$rootScope', function($rootScope) {
             console.log('Running dannyPackery linking function!');
             if($rootScope.packery === undefined || $rootScope.packery === null){
                 console.log('making packery!');
-                $rootScope.packery = new Packery(element[0].parentElement, {columnWidth: '.item'});
+                $rootScope.packery = new Packery(element[0].parentElement, {columnWidth: 0,});
                 $rootScope.packery.bindResize();
                 $rootScope.packery.appended(element[0]);
                 $rootScope.packery.items.splice(1,1); // hack to fix a bug where the first element was added twice in two different positions
