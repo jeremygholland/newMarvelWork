@@ -208,7 +208,20 @@ $scope.secondClick = function(){
 										$scope.heroOne = window.heroOne;
 									defer.resolve(response);
 				}
-				})
+			}).then(function(response){
+
+			$(function () {
+ var width = $(window).width();
+ var height = $(window).height();
+ console.log(width);
+ window.resizeBy(100, 100)
+ console.log($(window).width());
+console.log('this resize worked')
+});
+
+
+defer.resolve(response);
+			})
 			})
 
 }
@@ -219,22 +232,25 @@ $scope.secondClick = function(){
 
 }]);
 
-app.directive('dannyPackery', ['$rootScope', function($rootScope) {
+app.directive('dannyPackery', ['$rootScope', '$timeout', function($rootScope, $timeout) {
     return {
         restrict: 'A',
         link: function(scope, element, attrs) {
+					var testThis = $(".wrapper > div").length
             console.log('Running dannyPackery linking function!');
             if($rootScope.packery === undefined || $rootScope.packery === null){
                 console.log('making packery!');
-                $rootScope.packery = new Packery(element[0].parentElement, {columnWidth: 0,});
+                $rootScope.packery = new Packery(element[0].parentElement, {itemSelector: '.item' });
                 $rootScope.packery.bindResize();
                 $rootScope.packery.appended(element[0]);
                 $rootScope.packery.items.splice(1,1); // hack to fix a bug where the first element was added twice in two different positions
             }
             else{
                 $rootScope.packery.appended(element[0]);
-            }
-            $rootScope.packery.layout();
-        }
+  					}
+				$('.wrapper').imagesLoaded( function(){
+							$rootScope.packery.layout();
+					})
+			}
     };
 }]);

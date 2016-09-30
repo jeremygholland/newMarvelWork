@@ -102,21 +102,22 @@
   width: 60vw;
   margin: 10px auto; }
 
-.containComics {
+.wrapper {
   display: flex;
   width: 90vw;
   flex-wrap: wrap;
   justify-content: space-around;
-  flex-direction: row;
-  margin-bottom: 20vh; }
+  flex-direction: row; }
 
 .item {
-  margin: 0 5px; }
+  margin: 0 5px;
+  min-width: 12vw; }
   .item img {
     width: 12vw; }
 
 .item:nth-child(2n+1) {
-  margin: 0 5px; }
+  margin: 0 5px;
+  min-width: 18vw; }
   .item:nth-child(2n+1) img {
     width: 18vw; }
 
@@ -222,6 +223,9 @@ body {
 
 #myNav {
   background-color: #ED1323;
+  width: 100%; }
+
+.hundred {
   width: 100%; }
 
 #imgFlash {

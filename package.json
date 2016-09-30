@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "angular-images-loaded": "^0.2.4",
     "browser-sync": "^2.7.12",
     "del": "^2.0.2",
     "gulp": "^3.9.0",

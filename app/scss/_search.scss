@@ -125,22 +125,19 @@ color: #fff;
 width: 60vw;
 margin: 10px auto;
 }
-.containComics{
+.wrapper{
   display:flex;
   width: 90vw;
   flex-wrap: wrap;
   justify-content: space-around;
   flex-direction: row;
-  margin-bottom: 20vh;
 
-  .singleComic{
-
-  }
 }
 
 
 .item{
   margin:0 5px;
+  min-width:   12vw;
 
   img{
   width: 12vw;
@@ -148,7 +145,7 @@ margin: 10px auto;
 }
 .item:nth-child(2n+1){
   margin:0 5px;
-
+  min-width: 18vw;
   img{
   width: 18vw;
 }

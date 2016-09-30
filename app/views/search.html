@@ -19,9 +19,10 @@
   <div class="containDates" >
     {{endDate}} {{startDate}}
   </div>
-  <div class="containComics">
-    <div ng-repeat ="secondImage in secondImages" class="item" danny-packery>
-     <img ng-src="{{secondImage}}" alt="" class = "comicExpand"> </div>
-
   </div>
+
+  <div class="wrapper">
+    <div ng-repeat ="secondImage in secondImages" class="item" danny-packery ng-class="isLast($last)">
+     <img ng-src="{{secondImage}}" alt="" class = "comicExpand" > </div>
+
   </div>
