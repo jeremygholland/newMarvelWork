@@ -146,12 +146,21 @@ $scope.secondClick = function(){
 
 
 		else{
+
+			var changeDate = function(date){
+				var year = date.slice(0,4);
+				var month = date.slice(5,7);
+				return (month + '/'+year)
+			}
+
+	var newStart = changeDate(startDate)
+			var newEnd = changeDate(endDate)
+
 			$('.btn').hide();
 			$('.containSearch').hide();
 			$('.containProgress').show();
-			$('#startDateProgress').append(startDate);
-			$('#endDateProgress').append(endDate);
-			alert(endDate)
+			$('#startDateProgress').append(newStart);
+			$('#endDateProgress').append(newEnd);
 			$http({
 					url: 'http://gateway.marvel.com:80/v1/public/characters/'+$scope.heroOneReturn.id +'/comics?orderBy=onsaleDate&dateRange='+startDate+'%2C'+endDate+'&limit=35&apikey='+apiKey,
 					method: "GET"
@@ -216,7 +225,7 @@ $scope.secondClick = function(){
 
 											$('.containApp').css('height', '100%');
 										if(window.heroOne.description == ''){
-											window.heroOne.description = "There is no description on marvel's API for this character. "
+											window.heroOne.description = "There is no description on marvel's API for  "+$scope.heroOneReturn.name +". "
 										}
 
 
@@ -253,7 +262,7 @@ app.directive('dannyPackery', ['$rootScope', '$timeout', function($rootScope, $t
             console.log('Running dannyPackery linking function!');
             if($rootScope.packery === undefined || $rootScope.packery === null){
                 console.log('making packery!');
-                $rootScope.packery = new Packery(element[0].parentElement, {itemSelector: '.item', gutter: 2.5 });
+                $rootScope.packery = new Packery(element[0].parentElement, {itemSelector: '.item', gutter: 2.5,});
                 $rootScope.packery.bindResize();
                 $rootScope.packery.appended(element[0]);
                 $rootScope.packery.items.splice(1,1); // hack to fix a bug where the first element was added twice in two different positions

@@ -11,8 +11,15 @@
 
 .containProgress{
   height: 10vh;
+  margin-top: 20px;
 }
 .loadingText{
   font-size: 16px;
   color: #fff;
+  text-align: center;
+  margin: 10px 0;
+}
+.containFlash{
+  display: flex;
+  justify-content: center;
 }

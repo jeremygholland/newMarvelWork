@@ -1,11 +1,14 @@
-<div>
+<div class = "containFlash">
+  <div>
   <img ng-src={{heroOne.img}}>
+  </div>
 </div>
 <div class="containProgress">
+  <div class = "loadingText">Loading</div>
 <div class="progress">
       <div class="indeterminate"></div>
   </div>
-  <div > <p class = "loadingText">You are searching for {{heroOne.name}} comics from <span id="startDateProgress"></span> to <span id = "endDateProgress"></span></p>
+  <div > <p class = "loadingText">You are searching for comics pertaining to <span class = "heroName">{{heroOne.name}}</span> from <span id="startDateProgress"></span> to <span id = "endDateProgress"></span></p>
   </div>
   </div>
 

@@ -116,12 +116,12 @@
 .item {
   margin: 0 5px; }
   .item img {
-    width: 10vw; }
+    width: 8vw; }
 
 .item:nth-child(2n+1) {
   margin: 0 5px; }
   .item:nth-child(2n+1) img {
-    width: 14vw; }
+    width: 12vw; }
 
 input[type=month] {
   height: 35px;
@@ -176,11 +176,18 @@ input::-webkit-calendar-picker-indicator {
   font-size: 20px; }
 
 .containProgress {
-  height: 10vh; }
+  height: 10vh;
+  margin-top: 20px; }
 
 .loadingText {
   font-size: 16px;
-  color: #fff; }
+  color: #fff;
+  text-align: center;
+  margin: 10px 0; }
+
+.containFlash {
+  display: flex;
+  justify-content: center; }
 
 body {
   background-color: #333; }
