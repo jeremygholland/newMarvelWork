@@ -8,12 +8,11 @@
 .containComic {
   position: relative;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   flex-wrap: wrap;
   background-color: white;
   background-size: cover;
   width: 80vw;
-  margin: 0 auto;
   padding-bottom: 50px;
   min-height: 80vh;
   z-index: 2000; }
@@ -55,21 +54,21 @@
       border-bottom: 3px solid #fff; }
     #searchImg form input::-webkit-input-placeholder {
       font-family: helvetica;
-      font-size: 3vw;
+      font-size: 2vw;
       color: white;
-      padding-bottom: 2vh; }
+      padding-bottom: 3vh; }
     #searchImg form input:-moz-placeholder {
-      font-size: 3vw;
+      font-size: 2vw;
       color: white;
-      padding-bottom: 2vh; }
+      padding-bottom: 3vh; }
     #searchImg form input::-moz-placeholder {
-      font-size: 3vw;
+      font-size: 2vw;
       color: white;
-      padding-bottom: 2vh; }
+      padding-bottom: 3vh; }
     #searchImg form :-ms-input-placeholder {
-      font-size: 3vw;
+      font-size: 2vw;
       color: white;
-      padding-bottom: 2vh; }
+      padding-bottom: 3vh; }
 
 .ui-autocomplete {
   height: 15vh;
@@ -90,36 +89,39 @@
   margin-top: 0px;
   color: #fff; }
 
+.containSearchField {
+  width: 90vw; }
+
 #imageSearch {
   display: flex;
   justify-content: center; }
   #imageSearch div {
     margin: 10px; }
     #imageSearch div img {
-      width: 20vw; }
+      width: 25vw; }
 
 #characterDescription {
-  width: 60vw;
-  margin: 10px auto; }
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
+  text-align: center; }
 
 .wrapper {
   display: flex;
-  width: 90vw;
+  width: 100%;
   flex-wrap: wrap;
   justify-content: space-around;
   flex-direction: row; }
 
 .item {
-  margin: 0 5px;
-  min-width: 12vw; }
+  margin: 0 5px; }
   .item img {
-    width: 12vw; }
+    width: 10vw; }
 
 .item:nth-child(2n+1) {
-  margin: 0 5px;
-  min-width: 18vw; }
+  margin: 0 5px; }
   .item:nth-child(2n+1) img {
-    width: 18vw; }
+    width: 14vw; }
 
 input[type=month] {
   height: 35px;
@@ -164,9 +166,21 @@ input[type="date"]::-webkit-input-placeholder {
 input::-webkit-calendar-picker-indicator {
   display: none; }
 
-@font-face {
-  font-family: 'marvelComics';
-  src: url("fonts/AVENGEANCE.otf") format("truetype"); }
+.btn {
+  margin-top: 20px;
+  background-color: #333; }
+
+.inputDesc {
+  color: #fff;
+  margin: 10px 0;
+  font-size: 20px; }
+
+.containProgress {
+  height: 10vh; }
+
+.loadingText {
+  font-size: 16px;
+  color: #fff; }
 
 body {
   background-color: #333; }

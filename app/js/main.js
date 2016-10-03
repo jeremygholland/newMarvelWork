@@ -65,6 +65,7 @@ app.controller('myCtrl',['$scope', '$rootScope', '$http', '$q', '$timeout', '$st
   var heroTwoEvent = [];
 	var heroOneCharacters= [];
 	$scope.endDate;
+$('.containProgress').hide();
 
 var firstImg = '';
 	$scope.secondImages = window.uniqueNames;
@@ -84,6 +85,9 @@ $scope.clear = function(){
 		$rootScope.packery = null;
 	$scope.heroOne = '';
 	$('#watcher').html('Watcher Watch');
+	$('.btn').show();
+$('.containProgress').hide();
+$('.containSearch').show();
 }
   var apiKey = '64f1f5a1ab896a13dd9c6b4009b0817e';
 
@@ -142,14 +146,20 @@ $scope.secondClick = function(){
 
 
 		else{
-
+			$('.btn').hide();
+			$('.containSearch').hide();
+			$('.containProgress').show();
+			$('#startDateProgress').append(startDate);
+			$('#endDateProgress').append(endDate);
+			alert(endDate)
 			$http({
-					url: 'http://gateway.marvel.com:80/v1/public/characters/'+$scope.heroOneReturn.id +'/comics?orderBy=onsaleDate&dateRange='+startDate+'%2C'+endDate+'&apikey='+apiKey,
+					url: 'http://gateway.marvel.com:80/v1/public/characters/'+$scope.heroOneReturn.id +'/comics?orderBy=onsaleDate&dateRange='+startDate+'%2C'+endDate+'&limit=35&apikey='+apiKey,
 					method: "GET"
 			}).then(function(response) {
 				$scope.secondImages =[];
+				$scope.imageTitles= [];
 					$scope.firstComic = response.data.data;
-
+					if($scope.firstComic.results[0].name != 'undefined' || $scope.firstComic.count ==0){
 				    window.heroOneComics = {
 				        name: $scope.firstComic.results[0].name,
 				        img: $scope.firstComic.results[0].thumbnail.path + '/detail.jpg',
@@ -165,6 +175,11 @@ $scope.secondClick = function(){
 						});
 							window.uniqueNames = uniqueNames;
 					defer.resolve(response);
+				}
+				else{
+					alert("sorry, we couldn't find this hero. Please click the home button or expand your date range and try again.")
+					$('.btn').show();
+				}
 				}).then(function(response){
 				$http({
 					url: 'http://gateway.marvel.com:80/v1/public/characters/' + $scope.heroOneReturn.id +
@@ -228,8 +243,6 @@ defer.resolve(response);
 }
 
 
-
-
 }]);
 
 app.directive('dannyPackery', ['$rootScope', '$timeout', function($rootScope, $timeout) {
@@ -240,7 +253,7 @@ app.directive('dannyPackery', ['$rootScope', '$timeout', function($rootScope, $t
             console.log('Running dannyPackery linking function!');
             if($rootScope.packery === undefined || $rootScope.packery === null){
                 console.log('making packery!');
-                $rootScope.packery = new Packery(element[0].parentElement, {itemSelector: '.item' });
+                $rootScope.packery = new Packery(element[0].parentElement, {itemSelector: '.item', gutter: 2.5 });
                 $rootScope.packery.bindResize();
                 $rootScope.packery.appended(element[0]);
                 $rootScope.packery.items.splice(1,1); // hack to fix a bug where the first element was added twice in two different positions

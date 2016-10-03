@@ -10,12 +10,11 @@
 .containComic{
   position: relative;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   flex-wrap: wrap;
   background-color: white;
   background-size: cover;
   width: 80vw;
-  margin: 0 auto;
   padding-bottom: 50px;
   min-height: 80vh;
   z-index: 2000;
@@ -62,25 +61,25 @@
     }
   input::-webkit-input-placeholder {
     font-family: helvetica;
-      font-size: 3vw;
+      font-size: 2vw;
       color: white;
-      padding-bottom: 2vh;
+      padding-bottom: 3vh;
     }
   input:-moz-placeholder {
-        font-size: 3vw;
+        font-size: 2vw;
         color: white;
-        padding-bottom: 2vh;
+        padding-bottom: 3vh;
       }
 
   input::-moz-placeholder {
-          font-size: 3vw;
+          font-size: 2vw;
           color: white;
-          padding-bottom: 2vh;
+          padding-bottom: 3vh;
         }
   :-ms-input-placeholder{
-    font-size: 3vw;
+    font-size: 2vw;
     color: white;
-    padding-bottom: 2vh;
+    padding-bottom: 3vh;
   }
 
   }
@@ -107,6 +106,7 @@ color: #fff;
 
 }
 .containSearchField{
+  width: 90vw;
 
 }
 #imageSearch{
@@ -114,20 +114,22 @@ color: #fff;
   justify-content: center;
   div{
     img{
-      width: 20vw;
+      width: 25vw;
        }
        margin: 10px;
   }
 }
+
 #characterDescription{
 
-
-width: 60vw;
-margin: 10px auto;
+display: flex;
+justify-content: center;
+margin: 10px 0;
+text-align: center;
 }
 .wrapper{
   display:flex;
-  width: 90vw;
+  width: 100%;
   flex-wrap: wrap;
   justify-content: space-around;
   flex-direction: row;
@@ -137,16 +139,14 @@ margin: 10px auto;
 
 .item{
   margin:0 5px;
-  min-width:   12vw;
 
   img{
-  width: 12vw;
+  width: 10vw;
 }
 }
 .item:nth-child(2n+1){
   margin:0 5px;
-  min-width: 18vw;
   img{
-  width: 18vw;
+  width: 14vw;
 }
 }

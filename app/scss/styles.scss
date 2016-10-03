@@ -1,10 +1,7 @@
 @import 'search';
 @import 'home';
 @import 'date';
-@font-face{
-  font-family: 'marvelComics';
-  src: url('fonts/AVENGEANCE.otf') format('truetype');;
-}
+@import 'imgFlash';
 body{
 background-color: #333;
 }

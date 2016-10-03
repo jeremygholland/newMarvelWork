@@ -1,7 +1,18 @@
 <div>
   <img ng-src={{heroOne.img}}>
 </div>
-<div class = "inputDesc">please select a start date</div><input type="month" id="startDate" min="1961-11" max="2017-12">
-<div class = "inputDesc">please select an end date</div>
+<div class="containProgress">
+<div class="progress">
+      <div class="indeterminate"></div>
+  </div>
+  <div > <p class = "loadingText">You are searching for {{heroOne.name}} comics from <span id="startDateProgress"></span> to <span id = "endDateProgress"></span></p>
+  </div>
+  </div>
+
+
+<div class="containSearch">
+<div class = "inputDesc">Please select a start date</div><input type="month" id="startDate" min="1961-11" max="2017-12">
+<div class = "inputDesc">Please select an end date</div>
 <input type="month" id="endDate" min="1961-12" max="2017-12">
-<button ng-click = "secondClick()">clickMe</button>
+<button ng-click = "secondClick()" class = "btn waves-effect waves-light">clickMe</button>
+</div>
