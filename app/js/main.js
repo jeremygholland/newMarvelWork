@@ -57,7 +57,7 @@ app.controller('myCtrl',['$scope', '$rootScope', '$http', '$q', '$timeout', '$st
 	});
 
 
-
+	$scope.fail = window.fail;
 	var newNumber;
 	var heroOneComic;
 	$scope.heroOneComics = window.heroOneComic;
@@ -84,6 +84,7 @@ $scope.clear = function(){
 		$('.containApp').css('height', '100vh');
 		$rootScope.packery = null;
 	$scope.heroOne = '';
+	$scope.secondImage= [];
 	$('#watcher').html('Watcher Watch');
 	$('.btn').show();
 $('.containProgress').hide();
@@ -173,7 +174,13 @@ $scope.secondClick = function(){
 				$scope.secondImages =[];
 				$scope.imageTitles= [];
 					$scope.firstComic = response.data.data;
-					if($scope.firstComic.results[0].name != 'undefined' || $scope.firstComic.count ==0){
+					if($scope.firstComic == 'undefined' || $scope.firstComic.count ==0){
+						window.fail = true;
+						$('.btn').show();
+
+					}
+					else{
+						window.fail=false;
 				    window.heroOneComics = {
 				        name: $scope.firstComic.results[0].name,
 				        img: $scope.firstComic.results[0].thumbnail.path + '/detail.jpg',
@@ -190,10 +197,7 @@ $scope.secondClick = function(){
 							window.uniqueNames = uniqueNames;
 					defer.resolve(response);
 				}
-				else{
-					alert("sorry, we couldn't find this hero. Please click the home button or expand your date range and try again.")
-					$('.btn').show();
-				}
+
 				}).then(function(response){
 				$http({
 					url: 'http://gateway.marvel.com:80/v1/public/characters/' + $scope.heroOneReturn.id +

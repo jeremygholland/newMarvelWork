@@ -16,6 +16,10 @@
     </div>
   </div>
 
+  <div class="fail" ng-show = "fail">
+    <p>Sorry, we couldn't find this hero. Please click the home button or expand your date range and try again.</p>
+  </div>
+
   <div class="wrapper">
     <div ng-repeat ="secondImage in secondImages" class="item" danny-packery ng-class="isLast($last)">
      <img ng-src="{{secondImage}}" alt="" class = "comicExpand" > </div>
