@@ -30,8 +30,8 @@
 
 }
 .containName{
-  display: flex;
-  justify-content: center;
+  text-align: center;
+  font-size: 3vw;
 }
 #heroOneName{
   font-size: 3vw;
@@ -43,32 +43,38 @@
   background-size: cover;
   width: 80vw;
   height: 80vh;
+  display: flex;
+  z-index: -40;
+}
+.leftInput{
+  position: absolute;
+
   form{
     position: absolute;
     bottom: 0;
-    font-size: 28px;
     width: 80vw;
     input {
       font-size: 3vh;
+          text-align: center;
       height: 3vh;
+      margin-bottom: -.1vh;
+      padding-bottom: 1vh;
       color: white;
-      padding-bottom: 2vh;
-      margin-bottom: 3vh;
-      border-bottom: 4px solid #EC1D25;
+      border-bottom: 3px solid #EC1D25;
     }
     input:active, input:hover,input:focus {
-      border-bottom: 3px solid #fff;
+      border-bottom: 3px solid #ffffff !important;
     }
   input::-webkit-input-placeholder {
     font-family: helvetica;
       font-size: 2vw;
       color: white;
-      padding-bottom: 3vh;
+      padding-bottom: 2vh;
     }
   input:-moz-placeholder {
         font-size: 2vw;
         color: white;
-        padding-bottom: 3vh;
+        padding-bottom: 2vh;
       }
 
   input::-moz-placeholder {
@@ -85,11 +91,12 @@
   }
 }
 .ui-autocomplete{
-  height: 15vh;
+  max-height: 15vh;
+  height: 100%;
   display: flex;
   width: 80vw;
   flex-wrap: wrap;
-  flex-direction:row;
+  flex-direction:column;
   overflow: scroll;
   background-color: white;
   bottom: 0;
@@ -98,6 +105,9 @@
   list-style-type: disc;
   li{
     margin-left: 10px;
+  }
+  li:hover{
+    border-bottom: 5px solid #EC1D25
   }
 }
 .containName{
@@ -124,8 +134,9 @@ color: #fff;
 
 display: flex;
 justify-content: center;
-margin: 10px 0;
-text-align: center;
+width: 90%;
+margin: 1.5vh auto;
+font-size: 1.5vw;
 }
 .wrapper{
   display:flex;

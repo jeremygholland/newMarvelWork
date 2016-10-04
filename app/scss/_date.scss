@@ -15,10 +15,7 @@ input[type=month] {
   color: #fff;
 
   &::-webkit-datetime-edit-month-field {
-    color: red;
-  }
-  &::-webkit-datetime-edit-day-field {
-    color: white;
+    color: #333;
   }
   &::-webkit-datetime-edit-year-field {
     color: blue;

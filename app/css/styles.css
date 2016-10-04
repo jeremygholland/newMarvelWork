@@ -25,8 +25,8 @@
   text-align: center; }
 
 .containName {
-  display: flex;
-  justify-content: center; }
+  text-align: center;
+  font-size: 3vw; }
 
 #heroOneName {
   font-size: 3vw;
@@ -37,45 +37,51 @@
   background-image: url("../images/search.jpg");
   background-size: cover;
   width: 80vw;
-  height: 80vh; }
-  #searchImg form {
+  height: 80vh;
+  display: flex;
+  z-index: -40; }
+
+.leftInput {
+  position: absolute; }
+  .leftInput form {
     position: absolute;
     bottom: 0;
-    font-size: 28px;
     width: 80vw; }
-    #searchImg form input {
+    .leftInput form input {
       font-size: 3vh;
+      text-align: center;
       height: 3vh;
+      margin-bottom: -.1vh;
+      padding-bottom: 1vh;
       color: white;
-      padding-bottom: 2vh;
-      margin-bottom: 3vh;
-      border-bottom: 4px solid #EC1D25; }
-    #searchImg form input:active, #searchImg form input:hover, #searchImg form input:focus {
-      border-bottom: 3px solid #fff; }
-    #searchImg form input::-webkit-input-placeholder {
+      border-bottom: 3px solid #EC1D25; }
+    .leftInput form input:active, .leftInput form input:hover, .leftInput form input:focus {
+      border-bottom: 3px solid #ffffff !important; }
+    .leftInput form input::-webkit-input-placeholder {
       font-family: helvetica;
       font-size: 2vw;
       color: white;
-      padding-bottom: 3vh; }
-    #searchImg form input:-moz-placeholder {
+      padding-bottom: 2vh; }
+    .leftInput form input:-moz-placeholder {
+      font-size: 2vw;
+      color: white;
+      padding-bottom: 2vh; }
+    .leftInput form input::-moz-placeholder {
       font-size: 2vw;
       color: white;
       padding-bottom: 3vh; }
-    #searchImg form input::-moz-placeholder {
-      font-size: 2vw;
-      color: white;
-      padding-bottom: 3vh; }
-    #searchImg form :-ms-input-placeholder {
+    .leftInput form :-ms-input-placeholder {
       font-size: 2vw;
       color: white;
       padding-bottom: 3vh; }
 
 .ui-autocomplete {
-  height: 15vh;
+  max-height: 15vh;
+  height: 100%;
   display: flex;
   width: 80vw;
   flex-wrap: wrap;
-  flex-direction: row;
+  flex-direction: column;
   overflow: scroll;
   background-color: white;
   bottom: 0;
@@ -84,6 +90,8 @@
   list-style-type: disc; }
   .ui-autocomplete li {
     margin-left: 10px; }
+  .ui-autocomplete li:hover {
+    border-bottom: 5px solid #EC1D25; }
 
 .containName {
   margin-top: 0px;
@@ -103,8 +111,9 @@
 #characterDescription {
   display: flex;
   justify-content: center;
-  margin: 10px 0;
-  text-align: center; }
+  width: 90%;
+  margin: 1.5vh auto;
+  font-size: 1.5vw; }
 
 .wrapper {
   display: flex;
@@ -138,9 +147,7 @@ input[type=month] {
   padding: 0 3px;
   color: #fff; }
   input[type=month]::-webkit-datetime-edit-month-field {
-    color: red; }
-  input[type=month]::-webkit-datetime-edit-day-field {
-    color: white; }
+    color: #333; }
   input[type=month]::-webkit-datetime-edit-year-field {
     color: blue; }
   input[type=month]::-webkit-clear-button {
@@ -168,7 +175,7 @@ input::-webkit-calendar-picker-indicator {
 
 .btn {
   margin-top: 20px;
-  background-color: #333; }
+  background-color: #EC1D25; }
 
 .inputDesc {
   color: #fff;
@@ -209,33 +216,6 @@ body {
 
 .ui-helper-hidden-accessible {
   display: none; }
-
-.containStart {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between; }
-  .containStart .leftInput {
-    width: 50%; }
-    .containStart .leftInput input {
-      width: 100%;
-      height: 40px;
-      font-size: 3vw;
-      text-align: center; }
-    .containStart .leftInput input::-webkit-input-placeholder {
-      font-size: 3vw;
-      text-align: center; }
-  .containStart button {
-    width: 10%; }
-  .containStart .rightInput {
-    width: 40%; }
-    .containStart .rightInput input {
-      width: 100%;
-      height: 40px;
-      font-size: 3vw;
-      text-align: center; }
-    .containStart .rightInput input::-webkit-input-placeholder {
-      font-size: 3vw;
-      text-align: center; }
 
 .homeBtn {
   display: flex;

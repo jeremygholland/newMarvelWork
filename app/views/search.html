@@ -1,6 +1,6 @@
   <div class="containSearchField">
     <div class="containName">
-      <h1>{{heroOne.name}}</h1>
+      <p>{{heroOne.name}}</p>
     </div>
     <div id = "imageSearch">
       <div>
@@ -15,11 +15,6 @@
     {{heroOne.description}}
     </div>
   </div>
-
-  <div class="containDates" >
-    {{endDate}} {{startDate}}
-  </div>
-
 
   <div class="wrapper">
     <div ng-repeat ="secondImage in secondImages" class="item" danny-packery ng-class="isLast($last)">

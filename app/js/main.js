@@ -147,6 +147,10 @@ $scope.secondClick = function(){
 
 		else{
 
+
+				//reverses the oder of the Month input
+
+
 			var changeDate = function(date){
 				var year = date.slice(0,4);
 				var month = date.slice(5,7);
@@ -161,6 +165,7 @@ $scope.secondClick = function(){
 			$('.containProgress').show();
 			$('#startDateProgress').append(newStart);
 			$('#endDateProgress').append(newEnd);
+
 			$http({
 					url: 'http://gateway.marvel.com:80/v1/public/characters/'+$scope.heroOneReturn.id +'/comics?orderBy=onsaleDate&dateRange='+startDate+'%2C'+endDate+'&limit=35&apikey='+apiKey,
 					method: "GET"
@@ -225,7 +230,7 @@ $scope.secondClick = function(){
 
 											$('.containApp').css('height', '100%');
 										if(window.heroOne.description == ''){
-											window.heroOne.description = "There is no description on marvel's API for  "+$scope.heroOneReturn.name +". "
+											window.heroOne.description = "There is no description on Marvel's API for  "+$scope.heroOneReturn.name +". "
 										}
 
 
