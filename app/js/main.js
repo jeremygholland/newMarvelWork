@@ -139,10 +139,10 @@ $scope.secondClick = function(){
 
 		var startDate = $('#startDate').val();
 		if (endDate<=startDate){
-				alert('please enter a start date that is before the end date')
+				 toastr.warning('Please enter a start date that is before the end date')
 		}
 		else if(endDate> 	date.yyyymmdd()){
-			alert('The latest date that you can enter is today.')
+			toastr.warning('The latest date that you can enter is today.' )
 		}
 
 

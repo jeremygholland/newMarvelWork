@@ -2,11 +2,14 @@
 @import 'home';
 @import 'date';
 @import 'imgFlash';
+
+
 body{
 background-color: #333;
 }
 #watcher{
   font-family: 'marvelComics' ;
+  font-size: 3vw;
 }
 .backgroundImg{
   height: 30vh;
@@ -35,9 +38,13 @@ display: none;
 #myNav{
   background-color: #ED1323;
   width: 100%;
-
-
+  position: fixed;
+  z-index: 50;
+  a{
+    margin: -2px 2px 0 5px;
+  }
 }
+
 .hundred{
   width: 100%;
 }

@@ -86,7 +86,7 @@
   background-color: white;
   bottom: 0;
   color: #333;
-  font-size: 20px;
+  font-size: 1.5vw;
   list-style-type: disc; }
   .ui-autocomplete li {
     margin-left: 10px; }
@@ -98,7 +98,8 @@
   color: #fff; }
 
 .containSearchField {
-  width: 90vw; }
+  width: 90vw;
+  margin-top: 8vh; }
 
 #imageSearch {
   display: flex;
@@ -131,6 +132,13 @@
   margin: 0 5px; }
   .item:nth-child(2n+1) img {
     width: 12vw; }
+
+.fail {
+  display: flex;
+  justify-content: center; }
+  .fail p {
+    color: #fff;
+    font-size: 1.5vw; }
 
 input[type=month] {
   height: 35px;
@@ -187,7 +195,7 @@ input::-webkit-calendar-picker-indicator {
   margin-top: 20px; }
 
 .loadingText {
-  font-size: 16px;
+  font-size: 1.5vw;
   color: #fff;
   text-align: center;
   margin: 10px 0; }
@@ -196,11 +204,16 @@ input::-webkit-calendar-picker-indicator {
   display: flex;
   justify-content: center; }
 
+#heroName {
+  color: #EC1D25;
+  font-size: 1.8vw; }
+
 body {
   background-color: #333; }
 
 #watcher {
-  font-family: 'marvelComics'; }
+  font-family: 'marvelComics';
+  font-size: 3vw; }
 
 .backgroundImg {
   height: 30vh;
@@ -224,7 +237,11 @@ body {
 
 #myNav {
   background-color: #ED1323;
-  width: 100%; }
+  width: 100%;
+  position: fixed;
+  z-index: 50; }
+  #myNav a {
+    margin: -2px 2px 0 5px; }
 
 .hundred {
   width: 100%; }
