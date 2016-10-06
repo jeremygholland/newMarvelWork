@@ -176,6 +176,11 @@ button.toast-close-button {
 }
 .toast-warning {
   background-color: #333;
+    word-break: break-word;
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    hyphens: none;
+    border-collapse: collapse !important; 
 }
 .toast-progress {
   position: absolute;

@@ -195,14 +195,15 @@ input::-webkit-calendar-picker-indicator {
   margin-top: 20px; }
 
 .loadingText {
-  font-size: 1.5vw;
+  font-size: 2vw;
   color: #fff;
   text-align: center;
   margin: 10px 0; }
 
 .containFlash {
   display: flex;
-  justify-content: center; }
+  justify-content: center;
+  margin-top: 10vw; }
 
 #heroName {
   color: #EC1D25;

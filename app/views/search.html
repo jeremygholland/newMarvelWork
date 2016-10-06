@@ -18,8 +18,10 @@
   </div>
 
   <div class="wrapper">
-    <div ng-repeat ="secondImage in secondImages" class="item" danny-packery ng-class="isLast($last)">
-     <img ng-src="{{secondImage}}" alt="" class = "comicExpand" > </div>
+    <div ng-repeat ="secondImage in secondImages" class="item expandable-box" danny-packery ng-class="isLast($last)">
+     <img ng-src="{{secondImage}}" alt="" class = "comicExpand" >
+            <p>{{imageTitles}}</p>
+    </div>
 
   </div>
   </div>

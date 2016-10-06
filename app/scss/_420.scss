@@ -1,7 +1,6 @@
-
-@media (max-width: 320px){
+@media (max-width: 415px){
   .containApp{
-    height: 100%;
+    height: 100vh;
   }
   .containSearchField{
     width: 90vw;
@@ -35,7 +34,7 @@
     font-size: 7vw;
   }
 
-#searchImg{
+  #searchImg{
     background-image: url("../images/search.jpg");
     background-size: cover;
     width: 80vw;
@@ -79,36 +78,39 @@
 
     }
   }
-  
 
 
-.containFlash{
+
+  .containFlash{
   img{
     width: 70vw;
-    margin-top: 25vw;
+    margin-top: 5vw;
   }
-}
-.loadingText{
+  }
+  .loadingText{
   font-size: 5vw;
   width: 80%;
   margin: 0 auto;
-}
-#heroName{
+  }
+  #heroName{
   font-size: 6vw;
-}
-#topLoad{
+  }
+  #topLoad{
   font-size: 6vw;
-}
-.progress{
+  }
+  .progress{
   width: 80%;
   margin: 10px auto;
-}
+  }
 
-.ui-autocomplete{
+  .ui-autocomplete{
   font-size: 4vw;
-}
+  }
 
-.wrapper{
+  .wrapper{
   margin-bottom: 2vh;
-}
+  }
+  .fail{
+  font-size: 4vw;
+  }
 }

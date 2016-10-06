@@ -18,7 +18,8 @@ var totalChar = [
  "Wallop", "Wallow", "War (Abraham Kieros)", "War Machine (Parnell Jacobs)", "Warbird", "Warbound", "Warhawk (Mitchell Tanner)", "Warlock (Janie Chin)", "Warpath", "Warren Worthington III", "Warstar", "Wasp", "Weapon Omega", "Weapon X", "Wendell Rand", "Wendell Vaughn", "Wendigo", "Werewolf By Night", "Whiplash (Mark Scarlotti)", "Whirlwind", "Whistler", "White Queen (Adrienne Frost)", "White Tiger (Angela Del Toro)", "Whizzer (Stanley Stewart)", "Wiccan", "Wild Child", "Wild Pack", "Wildside", "William Stryker", "Wilson Fisk", "Wind Dancer", "Winter Soldier", "Wither", "Wolf Cub", "Wolfpack", "Wolfsbane", "Wolver-dok", "Wolverine", "Wonder Man", "Wong", "Wraith", "Wrecker", "Wrecking Crew", "X-23", "X-51", "X-Babies", "X-Cutioner", "X-Factor", "X-Factor Investigations", "X-Force", "X-Man", "X-Men", "X-Ray (James Darnell)", "X-Statix", "X.S.E.", "Xavin", "Xorn (Kuan-Yin Xorn)", "Yellow Claw", "Yellowjacket (Rita DeMara)", "Young Avengers", "Young X-Men", "Zaladane", "Zaran", "Zarda", "Zarek", "Zeigeist", "Zemo", "Zodiak", "Zombie (Simon Garth)", "Zuras", "Zzzax"
 ]
 
-	$('#firstInput').autocomplete({
-		source: totalChar
-	});
+$('#firstInput').autocomplete({
+  source: totalChar,
+  minLength: 4
+});
 });
