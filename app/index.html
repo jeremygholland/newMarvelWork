@@ -16,17 +16,14 @@
     <link rel="stylesheet" href="css/mobile.css">
     <link rel="stylesheet" href="css/toast.css">
     <script>
-  (function(){
-    var redirect = sessionStorage.redirect;
-    delete sessionStorage.redirect;
-    if (redirect && redirect != location.href) {
-      history.replaceState(null, null, redirect);
-    }
-  })();
-</script>
-<script>
-  sessionStorage.redirect = location.href;
-</script>
+      (function(){
+        var redirect = sessionStorage.redirect;
+        delete sessionStorage.redirect;
+        if (redirect && redirect != location.href) {
+          history.replaceState(null, null, redirect);
+        }
+      })();
+    </script>
       <script src="js/lib/jQuery.js"></script>
   <script src= "js/lib/jquery-ui.js"></script>
   <script src="js/lib/packery.js"></script>
@@ -34,10 +31,6 @@
   <script src="js/lib/angularUiRouter.js"></script>
       <script src="https://npmcdn.com/imagesloaded@4.1/imagesloaded.pkgd.min.js"></script>
       <script src="js/lib/toastr.js"></script>
-
-
-
-<meta http-equiv="refresh" content="0;URL='/newMarvelWork'">
 
   <!--endbuild-->
 </head>
