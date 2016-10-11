@@ -2,8 +2,8 @@ This is my marvel search engine application, Watcher Watch.
 
 Just:
 1) clone this repo
-2) run 'npm install'
-3) run 'gulp'
+2) run 'npm install' in your terminal
+3) run 'gulp' in your terminal
 
 Enjoy! Thanks for taking a look. 
 
