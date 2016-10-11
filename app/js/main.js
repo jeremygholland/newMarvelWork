@@ -91,7 +91,7 @@ $('.containSearch').show();
 
             var heroOne = $('#firstInput').val()
 						$http({
-						    url: 'http://gateway.marvel.com:80/v1/public/characters?name=' + heroOne +'&limit=100&apikey='+apiKey,
+						    url: 'https'  + '://' + '/gateway.marvel.com:80/v1/public/characters?name=' + heroOne +'&limit=100&apikey='+apiKey,
 						    method: "GET"
 						}).then(function(response) {
 							$scope.firstCall = response.data.data;
@@ -163,7 +163,7 @@ $scope.secondClick = function(){
 			$('#endDateProgress').append(newEnd);
 
 			$http({
-					url: 'http://gateway.marvel.com:80/v1/public/characters/'+$scope.heroOneReturn.id +'/comics?orderBy=onsaleDate&dateRange='+startDate+'%2C'+endDate+'&limit=35&apikey='+apiKey,
+					url: 'https://gateway.marvel.com:80/v1/public/characters/'+$scope.heroOneReturn.id +'/comics?orderBy=onsaleDate&dateRange='+startDate+'%2C'+endDate+'&limit=35&apikey='+apiKey,
 					method: "GET"
 			}).then(function(response) {
 				$scope.secondImages =[];
@@ -200,7 +200,7 @@ $scope.secondClick = function(){
 
 				}).then(function(response){
 				$http({
-					url: 'http://gateway.marvel.com:80/v1/public/characters/' + $scope.heroOneReturn.id +
+					url: 'https://gateway.marvel.com:80/v1/public/characters/' + $scope.heroOneReturn.id +
 						'/stories?apikey='+apiKey,
 						method: "GET"
 				}).then(function(response){

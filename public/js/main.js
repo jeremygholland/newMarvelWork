@@ -91,7 +91,7 @@ $('.containSearch').show();
 
             var heroOne = $('#firstInput').val()
 						$http({
-						    url: 'https://gateway.marvel.com:80/v1/public/characters?name=' + heroOne +'&limit=100&apikey='+apiKey,
+						    url: 'https'  + '://' + '/gateway.marvel.com:80/v1/public/characters?name=' + heroOne +'&limit=100&apikey='+apiKey,
 						    method: "GET"
 						}).then(function(response) {
 							$scope.firstCall = response.data.data;
