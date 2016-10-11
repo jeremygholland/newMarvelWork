@@ -1,0 +1,66 @@
+@media (max-width: 320px) {
+  .containApp {
+    height: 100%; }
+  .containSearchField {
+    width: 90vw;
+    margin-top: 12vh; }
+    .containSearchField .containName {
+      font-size: 5vw; }
+    .containSearchField #imageSearch img {
+      width: 55vw; }
+    .containSearchField #characterDescription {
+      margin-top: -1vh;
+      font-size: 3vw; }
+    .containSearchField .fail {
+      font-size: 3vw; }
+    .containSearchField .item img {
+      width: 25vw; }
+  #watcher {
+    font-size: 7vw; }
+  #searchImg {
+    background-image: url("../images/search.jpg");
+    background-size: cover;
+    width: 80vw;
+    height: 80vh;
+    margin-top: 10vh; }
+  .leftInput form {
+    position: absolute;
+    bottom: 0;
+    width: 80vw; }
+    .leftInput form input {
+      font-size: 4vw;
+      height: 4vw;
+      color: #fff;
+      border-bottom: 4px solid #EC1D25; }
+    .leftInput form input:active, .leftInput form input:hover, .leftInput form input:focus {
+      border-bottom: 3px solid #fff; }
+    .leftInput form input::-webkit-input-placeholder {
+      font-family: helvetica;
+      font-size: 4vw;
+      color: white; }
+    .leftInput form #firstInput:-moz-placeholder {
+      font-size: 4vw;
+      color: white;
+      padding-bottom: 2vh; }
+    .leftInput form #firstInput::-moz-placeholder {
+      font-size: 4vw;
+      color: white; }
+    .leftInput form :-ms-input-placeholder {
+      font-size: 4vw;
+      color: white;
+      padding-bottom: 2vh; }
+  .containComic {
+    height: 100%;
+    background-size: 100%;
+    background-repeat: repeat space; }
+    .containComic .panel {
+      width: 90%; }
+  .containFlash img {
+    width: 70vw;
+    margin-top: 10vh; }
+  .loadingText {
+    font-size: 4vw; }
+  #heroName {
+    font-size: 4.5vw; }
+  #topLoad {
+    font-size: 6vw; } }

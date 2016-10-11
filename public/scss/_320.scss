@@ -1,0 +1,53 @@
+
+@media (max-width: 320px){
+  .containApp{
+    height: 100%;
+  }
+  .containSearchField{
+    width: 90vw;
+    margin-top: 12vh;
+    .containName{
+      font-size: 10vw;
+      margin-bottom: -5vh;
+    }
+    #imageSearch {
+      img{
+        width: 55vw;
+      }
+    }
+    #characterDescription{
+      margin-top: -1vh;
+      font-size: 4vw;
+    }
+    .fail{
+      font-size: 3vw;
+    }
+    .item{
+
+      img{
+      width: 25vw;
+    }
+    }
+
+
+  }
+  #watcher{
+    font-size: 7vw;
+  }
+
+#searchImg{
+    margin-top: 10vh;
+  }
+
+
+
+
+.containFlash{
+  img{
+    margin-top: 5vw;
+  }
+}
+.wrapper{
+  margin-bottom: 2vh;
+}
+}
